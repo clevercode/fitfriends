@@ -1,0 +1,15 @@
+defaults: &defaults
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  username: USERNAME
+  password: 
+  host: localhost
+
+development:
+  <<: *defaults
+  database: clevercode_fitfriends_development
+
+test:
+  <<: *defaults
+  database: clevercode_fitfriends_test
