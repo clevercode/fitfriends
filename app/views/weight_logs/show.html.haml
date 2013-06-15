@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Weight:
+  = @weight_log.weight
+%p
+  %b Measured at:
+  = @weight_log.measured_at
+%p
+  %b User:
+  = @weight_log.user_id
+
+= link_to 'Edit', edit_weight_log_path(@weight_log)
+\|
+= link_to 'Back', weight_logs_path

@@ -1,0 +1,2 @@
+module FoodLogsHelper
+end

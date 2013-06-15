@@ -1,4 +1,12 @@
 FitFriends::Application.routes.draw do
+  resources :water_logs
+
+  resources :weight_logs
+
+  resources :food_logs
+
+  resources :users
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

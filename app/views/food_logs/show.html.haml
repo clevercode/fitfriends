@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Food name:
+  = @food_log.food_name
+%p
+  %b Carbs:
+  = @food_log.carbs
+%p
+  %b Fat:
+  = @food_log.fat
+%p
+  %b Protein:
+  = @food_log.protein
+%p
+  %b Consumed at:
+  = @food_log.consumed_at
+%p
+  %b User:
+  = @food_log.user_id
+
+= link_to 'Edit', edit_food_log_path(@food_log)
+\|
+= link_to 'Back', food_logs_path

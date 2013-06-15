@@ -1,0 +1,23 @@
+%h1 Listing weight_logs
+
+%table
+  %tr
+    %th Weight
+    %th Measured at
+    %th User
+    %th
+    %th
+    %th
+
+  - @weight_logs.each do |weight_log|
+    %tr
+      %td= weight_log.weight
+      %td= weight_log.measured_at
+      %td= weight_log.user_id
+      %td= link_to 'Show', weight_log
+      %td= link_to 'Edit', edit_weight_log_path(weight_log)
+      %td= link_to 'Destroy', weight_log, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Weight log', new_weight_log_path

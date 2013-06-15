@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  volume: 1
+  consumed_at: 2013-06-15 16:51:32
+  user_id: 1
+
+two:
+  volume: 1
+  consumed_at: 2013-06-15 16:51:32
+  user_id: 1

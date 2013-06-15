@@ -1,0 +1,23 @@
+%h1 Listing water_logs
+
+%table
+  %tr
+    %th Volume
+    %th Consumed at
+    %th User
+    %th
+    %th
+    %th
+
+  - @water_logs.each do |water_log|
+    %tr
+      %td= water_log.volume
+      %td= water_log.consumed_at
+      %td= water_log.user_id
+      %td= link_to 'Show', water_log
+      %td= link_to 'Edit', edit_water_log_path(water_log)
+      %td= link_to 'Destroy', water_log, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Water log', new_water_log_path

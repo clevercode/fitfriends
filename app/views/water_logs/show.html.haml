@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Volume:
+  = @water_log.volume
+%p
+  %b Consumed at:
+  = @water_log.consumed_at
+%p
+  %b User:
+  = @water_log.user_id
+
+= link_to 'Edit', edit_water_log_path(@water_log)
+\|
+= link_to 'Back', water_logs_path

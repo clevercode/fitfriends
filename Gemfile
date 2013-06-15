@@ -11,7 +11,7 @@ gem 'sass-rails',    '~> 4.0.0.rc2'
 # gem 'compass-rails', '~> 1.0.3' # Sass Framework
 
 # Use HAML for markup
-gem 'haml-rails', '~> 0.3.4'
+gem 'haml-rails', '~> 0.4'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

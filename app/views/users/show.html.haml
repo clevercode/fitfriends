@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @user.name
+%p
+  %b Email:
+  = @user.email
+%p
+  %b Start weight:
+  = @user.start_weight
+%p
+  %b Goal weight:
+  = @user.goal_weight
+%p
+  %b Current weight:
+  = @user.current_weight
+%p
+  %b Height:
+  = @user.height
+
+= link_to 'Edit', edit_user_path(@user)
+\|
+= link_to 'Back', users_path

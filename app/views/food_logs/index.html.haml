@@ -1,0 +1,29 @@
+%h1 Listing food_logs
+
+%table
+  %tr
+    %th Food name
+    %th Carbs
+    %th Fat
+    %th Protein
+    %th Consumed at
+    %th User
+    %th
+    %th
+    %th
+
+  - @food_logs.each do |food_log|
+    %tr
+      %td= food_log.food_name
+      %td= food_log.carbs
+      %td= food_log.fat
+      %td= food_log.protein
+      %td= food_log.consumed_at
+      %td= food_log.user_id
+      %td= link_to 'Show', food_log
+      %td= link_to 'Edit', edit_food_log_path(food_log)
+      %td= link_to 'Destroy', food_log, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Food log', new_food_log_path

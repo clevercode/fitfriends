@@ -1,0 +1,19 @@
+= form_for @weight_log do |f|
+  - if @weight_log.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@weight_log.errors.count, "error")} prohibited this weight_log from being saved:"
+      %ul
+        - @weight_log.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :weight
+    = f.text_field :weight
+  .field
+    = f.label :measured_at
+    = f.datetime_select :measured_at
+  .field
+    = f.label :user_id
+    = f.number_field :user_id
+  .actions
+    = f.submit 'Save'
