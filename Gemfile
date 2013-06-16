@@ -14,6 +14,9 @@ gem 'sass-rails',    '~> 4.0.0.rc2'
 # Use HAML for markup
 gem 'haml-rails', '~> 0.4'
 
+# Use Simple Form for form generation
+gem 'simple_form'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
