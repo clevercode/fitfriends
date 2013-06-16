@@ -1,5 +1,6 @@
 class WaterLogsController < ApplicationController
-  before_action :set_water_log, only: [:show, :edit, :update, :destroy]
+  before_action :set_water_log, only: [:update, :destroy]
+  before_action :convert_values, only: [:show, :edit]
 
   # GET /water_logs
   # GET /water_logs.json
@@ -70,5 +71,10 @@ class WaterLogsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def water_log_params
       params.require(:water_log).permit(:volume, :consumed_at, :user_id)
+    end
+
+    def convert_values
+      set_water_log
+      @water_log.volume = @water_log.volume * 0.033814
     end
 end

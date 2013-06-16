@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:update, :destroy]
+  before_action :convert_values, only: [:show, :edit]
 
   # GET /users
   # GET /users.json
@@ -69,6 +70,13 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :start_weight, :goal_weight, :current_weight, :height)
+      params.require(:user).permit(:name, :email, :sex, :start_weight, :goal_weight, :current_weight, :height)
+    end
+
+    def convert_values
+      set_user
+      @user.start_weight = @user.start_weight * 2.20462
+      @user.goal_weight = @user.goal_weight * 2.20462
+      @user.height = @user.height * 0.393701
     end
 end

@@ -1,5 +1,6 @@
 class WeightLogsController < ApplicationController
-  before_action :set_weight_log, only: [:show, :edit, :update, :destroy]
+  before_action :set_weight_log, only: [:update, :destroy]
+  before_action :convert_values, only: [:show, :edit]
 
   # GET /weight_logs
   # GET /weight_logs.json
@@ -70,5 +71,10 @@ class WeightLogsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def weight_log_params
       params.require(:weight_log).permit(:weight, :measured_at, :user_id)
+    end
+
+    def convert_values
+      set_weight_log
+      @weight_log.weight = @weight_log.weight * 2.20462
     end
 end
