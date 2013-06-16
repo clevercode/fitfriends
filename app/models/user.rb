@@ -27,25 +27,11 @@ class User < ActiveRecord::Base
   end
 
   def water_consumed(date = Date.today)
-    water = 0
-    self.water_logs.each do |water_log|
-      if water_log.consumed_at.to_date == date
-        water += water_log.volume
-      end
-    end
-
-    water
+    self.water_logs.where(:consumed_at => range_of_date(date)).sum(:volume)
   end
 
   def carbs_consumed(date = Date.today)
-    carbs = 0
-    self.food_logs.each do |food_log|
-      if food_log.consumed_at.to_date == date
-        carbs += food_log.volume
-      end
-    end
-
-    carbs
+    self.food_logs.where(:consumed_at => range_of_date(date)).sum(:carbs)
   end
 
   def percentage_lost
@@ -53,5 +39,12 @@ class User < ActiveRecord::Base
     kilos_lost = start_weight - self.current_weight
     kilos_to_lose = start_weight - self.goal_weight
     (kilos_lost / kilos_to_lose).round(2)
+  end
+
+  private
+
+  def range_of_date(date)
+    Range.new(date.beginning_of_day.utc,
+              date.end_of_day.utc)
   end
 end
