@@ -1,29 +1,9 @@
-%h1 Listing users
+- @users.each do |user|
+  = content_tag :article, user, class: 'user' do
+    .avatar= image_tag user.avatar_url
+    %p.name= link_to user.name, edit_user_path(user)
+    %p.water_consumed #{user.water_consumed} ml
+    %p.carbs_consumed #{user.carbs_consumed} g
+    %p.percentage_lost #{user.percentage_lost}%
 
-%table
-  %tr
-    %th Name
-    %th Email
-    %th Start weight
-    %th Goal weight
-    %th Current weight
-    %th Height
-    %th
-    %th
-    %th
-
-  - @users.each do |user|
-    %tr
-      %td= user.name
-      %td= user.email
-      %td= user.start_weight
-      %td= user.goal_weight
-      %td= user.current_weight
-      %td= user.height
-      %td= link_to 'Show', user
-      %td= link_to 'Edit', edit_user_path(user)
-      %td= link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New User', new_user_path
+%p= link_to 'Made a new friend?', new_user_path
