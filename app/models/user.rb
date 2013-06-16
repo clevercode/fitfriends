@@ -21,4 +21,37 @@ class User < ActiveRecord::Base
     self.height = self.height * 2.54
   end
 
+  def avatar_url
+    gravatar_id = Digest::MD5.hexdigest(self.email.downcase)
+    "http://gravatar.com/avatar/#{gravatar_id}.png?s=64"
+  end
+
+  def water_consumed(date = Date.today)
+    water = 0
+    self.water_logs.each do |water_log|
+      if water_log.consumed_at.to_date == date
+        water += water_log.volume
+      end
+    end
+
+    water
+  end
+
+  def carbs_consumed(date = Date.today)
+    carbs = 0
+    self.food_logs.each do |food_log|
+      if food_log.consumed_at.to_date == date
+        carbs += food_log.volume
+      end
+    end
+
+    carbs
+  end
+
+  def percentage_lost
+    start_weight = self.start_weight
+    kilos_lost = start_weight - self.current_weight
+    kilos_to_lose = start_weight - self.goal_weight
+    (kilos_lost / kilos_to_lose).round(2)
+  end
 end
