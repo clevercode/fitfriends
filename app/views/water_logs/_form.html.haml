@@ -1,19 +1,5 @@
-= form_for @water_log do |f|
-  - if @water_log.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@water_log.errors.count, "error")} prohibited this water_log from being saved:"
-      %ul
-        - @water_log.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :volume
-    = f.number_field :volume
-  .field
-    = f.label :consumed_at
-    = f.datetime_select :consumed_at
-  .field
-    = f.label :user_id
-    = f.number_field :user_id
-  .actions
-    = f.submit 'Save'
+= simple_form_for @water_log do |f|
+ = f.input :volume, label: 'Volume (in ounces)'
+ = f.input :consumed_at
+ = f.input :user_id
+ = f.button :submit
