@@ -7,6 +7,9 @@ FitFriends::Application.routes.draw do
 
   resources :users
 
+  get 'days/:date' => 'days#index'
+  get 'users/:user_id/days/:date' => 'days#show'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
