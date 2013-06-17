@@ -1,9 +1,8 @@
 = simple_form_for @food_log do |f|
- = f.input :food_name, label: 'Weight (in pounds)'
- = f.input :measured_at
+ = f.input :food_name
  = f.input :carbs, label: 'Carbs (carbs - fiber)'
  = f.input :fat
  = f.input :protein
  = f.input :consumed_at
- = f.input :user_id
+ = f.input :user_id, as: :select, collection: @users
  = f.button :submit

@@ -14,6 +14,7 @@ class FoodLogsController < ApplicationController
 
   # GET /food_logs/new
   def new
+    @users = User.all
     @food_log = FoodLog.new
   end
 
