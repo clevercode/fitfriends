@@ -16,3 +16,6 @@
 /tmp
 
 /config/database.yml
+
+# Ingore foreman environment
+.env

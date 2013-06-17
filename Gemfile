@@ -7,6 +7,9 @@ gem 'rails', '4.0.0.rc2'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+# Use Unicorn as the webserver
+gem 'unicorn'
+
 # Use SASS and Compass for stylesheets
 gem 'sass-rails',    '~> 4.0.0.rc2'
 # gem 'compass-rails', '~> 1.0.3' # Sass Framework
