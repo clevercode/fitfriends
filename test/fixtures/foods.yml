@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  food_name: MyString
+  carbs: 9.99
+  fat: 9.99
+  protein: 9.99
+  recipe_id: 1
+
+two:
+  food_name: MyString
+  carbs: 9.99
+  fat: 9.99
+  protein: 9.99
+  recipe_id: 1

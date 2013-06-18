@@ -1,0 +1,22 @@
+%p
+  %b Food name:
+  = food.food_name
+%p
+  %b Carbs:
+  = food.carbs
+%p
+  %b Fat:
+  = food.fat
+%p
+  %b Protein:
+  = food.protein
+%p
+  %b Amount:
+  = food.amount
+%p
+  %b Servings:
+  = food.servings
+
+= link_to 'Edit', edit_recipe_food_path(@recipe, food)
+|
+= link_to 'Delete', recipe_food_path(@recipe, food), method: 'delete'

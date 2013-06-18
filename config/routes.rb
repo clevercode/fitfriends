@@ -1,4 +1,8 @@
 FitFriends::Application.routes.draw do
+  resources :recipes do
+    resources :foods, except: [:index]
+  end
+
   resources :water_logs
 
   resources :weight_logs

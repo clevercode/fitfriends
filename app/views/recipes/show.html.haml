@@ -1,0 +1,29 @@
+%p#notice= notice
+
+%p
+  %b Recipe name:
+  = @recipe.recipe_name
+%p
+  %b Description:
+  = @recipe.description
+%p
+  %b Carbs:
+  = @recipe.carbs
+%p
+  %b Fat:
+  = @recipe.fat
+%p
+  %b Protein:
+  = @recipe.protein
+%p
+  %b Servings:
+  = @recipe.servings
+
+= link_to 'Edit', edit_recipe_path(@recipe)
+\|
+= link_to 'Back', recipes_path
+\|
+= link_to 'Add food to recipe', new_recipe_food_path(@recipe)
+
+= render @recipe.foods
+  
