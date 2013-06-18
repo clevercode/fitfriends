@@ -2,6 +2,6 @@
 
 = render 'form'
 
-= link_to 'Show', @water_log
+= link_to 'Show', user_water_log_path(@user, @water_log)
 \|
-= link_to 'Back', water_logs_path
+= link_to 'Back', user_water_logs_path(@user)

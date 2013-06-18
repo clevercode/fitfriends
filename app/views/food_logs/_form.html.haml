@@ -1,4 +1,4 @@
-= simple_form_for @food_log do |f|
+= simple_form_for [@user, @food_log] do |f|
  = f.input :food_name
  = f.input :carbs, label: 'Carbs (carbs - fiber)'
  = f.input :fat

@@ -21,4 +21,19 @@
 
 = link_to 'Edit', edit_user_path(@user)
 \|
+= link_to 'Add Water Log', new_user_water_log_path(@user)
+\|
+= link_to 'Add Food Log', new_user_food_log_path(@user)
+\|
+= link_to 'Add Weight Log', new_user_weight_log_path(@user)
+\|
 = link_to 'Back', users_path
+
+%br
+
+= link_to 'Water Logs', user_water_logs_path(@user)
+\|
+= link_to 'Food Logs', user_food_logs_path(@user)
+\|
+= link_to 'Weight Logs', user_weight_logs_path(@user)
+\|

@@ -14,10 +14,10 @@
       %td= weight_log.weight
       %td= weight_log.measured_at
       %td= weight_log.user_id
-      %td= link_to 'Show', weight_log
-      %td= link_to 'Edit', edit_weight_log_path(weight_log)
-      %td= link_to 'Destroy', weight_log, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Show', user_weight_log_path(@user, weight_log)
+      %td= link_to 'Edit', edit_user_weight_log_path(@user, weight_log)
+      %td= link_to 'Destroy', user_weight_log_path(@user, weight_log), :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Weight log', new_weight_log_path
+= link_to 'New Weight log', new_user_weight_log_path(@user)

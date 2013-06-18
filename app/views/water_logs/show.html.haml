@@ -10,6 +10,6 @@
   %b User:
   = @water_log.user_id
 
-= link_to 'Edit', edit_water_log_path(@water_log)
+= link_to 'Edit', edit_user_water_log_path(@user, @water_log)
 \|
-= link_to 'Back', water_logs_path
+= link_to 'Back', @user

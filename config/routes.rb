@@ -1,15 +1,13 @@
 FitFriends::Application.routes.draw do
   resources :recipes do
-    resources :foods, except: [:index]
+    resources :foods
   end
 
-  resources :water_logs
-
-  resources :weight_logs
-
-  resources :food_logs
-
-  resources :users
+  resources :users do
+    resources :water_logs
+    resources :weight_logs
+    resources :food_logs
+  end
 
   get 'days/:date' => 'days#index'
   get 'users/:user_id/days/:date' => 'days#show'

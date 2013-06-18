@@ -2,22 +2,20 @@ class FoodsController < ApplicationController
   before_action :set_recipe
   before_action :set_food, only: [:show, :edit, :update, :destroy]
 
-  # GET /foods/1
-  # GET /foods/1.json
+  def index
+    @foods = @recipe.foods.all
+  end
+
   def show
   end
 
-  # GET /foods/new
   def new
     @food = @recipe.foods.new
   end
 
-  # GET /foods/1/edit
   def edit
   end
 
-  # POST /foods
-  # POST /foods.json
   def create
     @food = @recipe.foods.new(food_params)
 
@@ -32,8 +30,6 @@ class FoodsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /foods/1
-  # PATCH/PUT /foods/1.json
   def update
     respond_to do |format|
       if @food.update(food_params)
@@ -46,8 +42,6 @@ class FoodsController < ApplicationController
     end
   end
 
-  # DELETE /foods/1
-  # DELETE /foods/1.json
   def destroy
     @recipe.food.destroy
     respond_to do |format|

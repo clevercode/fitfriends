@@ -2,6 +2,6 @@
 
 = render 'form'
 
-= link_to 'Show', @weight_log
+= link_to 'Show', user_weight_log_path(@user, @weight_log)
 \|
-= link_to 'Back', weight_logs_path
+= link_to 'Back', @user

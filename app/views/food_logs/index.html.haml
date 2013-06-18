@@ -20,10 +20,10 @@
       %td= food_log.protein
       %td= food_log.consumed_at
       %td= food_log.user_id
-      %td= link_to 'Show', food_log
-      %td= link_to 'Edit', edit_food_log_path(food_log)
-      %td= link_to 'Destroy', food_log, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Show', user_food_log_path(@user, food_log)
+      %td= link_to 'Edit', edit_user_food_log_path(@user, food_log)
+      %td= link_to 'Destroy', user_food_log_path(@user, food_log), :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Food log', new_food_log_path
+= link_to 'New Food log', new_user_food_log_path(@user)

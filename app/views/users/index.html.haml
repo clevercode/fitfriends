@@ -1,9 +1,10 @@
 - @users.each do |user|
   = content_tag :article, user, class: 'user' do
     .avatar= image_tag user.avatar_url
-    %p.name= link_to user.name, edit_user_path(user)
+    %p.name= link_to user.name, user_path(user)
     %p.water_consumed #{user.water_consumed} ml
     %p.carbs_consumed #{user.carbs_consumed} g
     %p.percentage_lost #{user.percentage_lost}%
 
 %p= link_to 'Made a new friend?', new_user_path
+%p= link_to 'Check out our recipes', recipes_path

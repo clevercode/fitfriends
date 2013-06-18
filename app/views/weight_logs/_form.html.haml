@@ -1,5 +1,5 @@
-= simple_form_for @weight_log do |f|
+= simple_form_for [@user, @weight_log] do |f|
  = f.input :weight, label: 'Weight (in pounds)'
  = f.input :measured_at
- = f.input :user_id
+ = f.input :user_id, as: :select, collection: @users
  = f.button :submit
