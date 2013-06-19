@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130618023356) do
+ActiveRecord::Schema.define(version: 20130619021227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,13 +50,14 @@ ActiveRecord::Schema.define(version: 20130618023356) do
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
-    t.decimal  "start_weight",             precision: 5, scale: 2
-    t.decimal  "goal_weight",              precision: 5, scale: 2
-    t.decimal  "current_weight",           precision: 5, scale: 2
+    t.decimal  "start_weight",              precision: 5, scale: 2
+    t.decimal  "goal_weight",               precision: 5, scale: 2
+    t.decimal  "current_weight",            precision: 5, scale: 2
     t.integer  "height"
-    t.string   "sex",            limit: 1
+    t.string   "sex",             limit: 1
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_digest"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
