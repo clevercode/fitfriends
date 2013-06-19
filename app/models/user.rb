@@ -26,11 +26,11 @@ class User < ActiveRecord::Base
     "http://gravatar.com/avatar/#{gravatar_id}.png?s=64"
   end
 
-  def water_consumed(date = Date.today)
+  def water_consumed(date = Time.zone.now.to_date)
     self.water_logs.where(:consumed_at => range_of_date(date)).sum(:volume)
   end
 
-  def carbs_consumed(date = Date.today)
+  def carbs_consumed(date = Time.zone.now.to_date)
     self.food_logs.where(:consumed_at => range_of_date(date)).sum(:carbs)
   end
 
@@ -44,7 +44,6 @@ class User < ActiveRecord::Base
   private
 
   def range_of_date(date)
-    Range.new(date.beginning_of_day.utc,
-              date.end_of_day.utc)
+    Range.new(date.beginning_of_day.utc, date.end_of_day.utc)
   end
 end
