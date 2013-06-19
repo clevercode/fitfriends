@@ -7,6 +7,8 @@ gem 'rails', '4.0.0.rc2'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+gem 'thin'
+
 # Use Unicorn as the webserver
 gem 'unicorn'
 
@@ -34,6 +36,9 @@ gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
+
+# Passwords
+gem 'bcrypt-ruby', '~> 3.0.1'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
