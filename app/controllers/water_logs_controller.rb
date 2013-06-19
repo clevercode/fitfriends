@@ -18,7 +18,7 @@ class WaterLogsController < ApplicationController
   end
 
   def create
-    @water_log = WaterLog.new(water_log_params)
+    @water_log = @user.water_logs.new(water_log_params)
 
     respond_to do |format|
       if @water_log.save

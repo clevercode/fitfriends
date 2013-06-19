@@ -4,7 +4,7 @@ class WeightLogsController < ApplicationController
   before_action :convert_values, only: [:show, :edit]
 
   def index
-    @weight_logs = @user.weight_logs.all
+    @weight_logs = @user.weight_logs
   end
 
   def show
