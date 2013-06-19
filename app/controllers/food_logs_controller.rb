@@ -1,5 +1,5 @@
 class FoodLogsController < ApplicationController
-  before_action :set_user
+  before_action :authorize, :set_user
   before_action :set_food_log, only: [:show, :edit, :update, :destroy]
 
   # GET /food_logs

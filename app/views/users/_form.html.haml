@@ -1,6 +1,8 @@
 = simple_form_for @user do |f|
  = f.input :name
  = f.input :email
+ = f.input :password
+ = f.input :password_confirmation
  = f.input :sex, label: 'Sex (M or F)'
  = f.input :start_weight, label: 'Start Weight (in pounds)'
  = f.input :goal_weight, label: 'Goal Weight (in pounds)'

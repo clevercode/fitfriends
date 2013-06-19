@@ -1,3 +1,14 @@
 %header
   .wrapper
+    .session-state
+      - if current_user
+        %p
+          Logged in as #{current_user.name}.
+          = link_to 'Sign Out', sign_out_path
+      - else
+        %p
+          = link_to 'Sign Up', new_user_path
+          or
+          = link_to 'Sign In', sign_in_path
+
     %h1= link_to 'Fit Friends', root_path

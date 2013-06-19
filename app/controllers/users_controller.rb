@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authorize, except: [:new, :create]
   before_action :set_user, only: [:update, :destroy]
   before_action :convert_values, only: [:show, :edit]
 
@@ -29,6 +30,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        session[:user_id] = @user.id
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render action: 'show', status: :created, location: @user }
       else
@@ -70,7 +72,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :sex, :start_weight, :goal_weight, :current_weight, :height)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :sex, :start_weight, :goal_weight, :current_weight, :height)
     end
 
     def convert_values

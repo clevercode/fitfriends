@@ -1,24 +1,24 @@
 class WeightLogsController < ApplicationController
-  before_action :set_user
+  before_action :authorize, :set_user
   before_action :set_weight_log, only: [:update, :destroy]
   before_action :convert_values, only: [:show, :edit]
 
   def index
-    @weight_logs = WeightLog.all
+    @weight_logs = @user.weight_logs.all
   end
 
   def show
   end
 
   def new
-    @weight_log = WeightLog.new
+    @weight_log = @user.weight_logs.new
   end
 
   def edit
   end
 
   def create
-    @weight_log = WeightLog.new(weight_log_params)
+    @weight_log = @user.weight_logs.new(weight_log_params)
 
     respond_to do |format|
       if @weight_log.save

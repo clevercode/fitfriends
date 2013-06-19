@@ -1,9 +1,21 @@
 header
   background-color: $red
 
+  *
+    color: white
+
+  .session-state
+    float: right
+
+    a
+      &:hover
+        background-color: white
+        color: $red
+      &:active
+        color: $red-shadow
+
   h1 a
     background-color: transparent
-    color: white
     font-weight: 600
     text-decoration: none
     text-shadow: $red-shadow 0 0 1em

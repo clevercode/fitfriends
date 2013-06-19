@@ -2,6 +2,11 @@ class User < ActiveRecord::Base
   after_create :create_weight_log
   before_save :convert_height_and_weight
 
+  has_secure_password
+
+  # Validations
+  validates_uniqueness_of :email
+
   # Associations
   has_many :water_logs,  inverse_of: :user
   has_many :food_logs,   inverse_of: :user

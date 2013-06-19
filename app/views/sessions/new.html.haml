@@ -1,0 +1,8 @@
+%h1 Sign In
+
+%p#notice= notice
+
+= simple_form_for Session.new do |f|
+  = f.input :email
+  = f.input :password
+  = f.button :submit

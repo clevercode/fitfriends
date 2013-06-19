@@ -1,5 +1,5 @@
 class FoodsController < ApplicationController
-  before_action :set_recipe
+  before_action :authorize, :set_recipe
   before_action :set_food, only: [:show, :edit, :update, :destroy]
 
   def index

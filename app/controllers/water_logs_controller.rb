@@ -1,5 +1,5 @@
 class WaterLogsController < ApplicationController
-  before_action :set_user
+  before_action :authorize, :set_user
   before_action :set_water_log, only: [:update, :destroy]
   before_action :convert_values, only: [:show, :edit]
 
