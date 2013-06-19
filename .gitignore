@@ -19,3 +19,5 @@
 
 # Ingore foreman environment
 .env
+
+.DS_Store
