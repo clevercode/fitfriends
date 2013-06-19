@@ -15,13 +15,11 @@ class FoodLogsController < ApplicationController
 
   # GET /food_logs/new
   def new
-    @users = User.all
     @food_log = @user.food_logs.new
   end
 
   # GET /food_logs/1/edit
   def edit
-    @users = User.all
   end
 
   # POST /food_logs

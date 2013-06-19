@@ -1,5 +1,4 @@
 = simple_form_for [@user, @water_log] do |f|
  = f.input :volume, label: 'Volume (in ounces)'
  = f.input :consumed_at
- = f.input :user_id, as: :select, collection: @users
  = f.button :submit

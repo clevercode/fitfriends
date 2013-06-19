@@ -11,12 +11,10 @@ class WaterLogsController < ApplicationController
   end
 
   def new
-    @users = User.all
     @water_log = @user.water_logs.new
   end
 
   def edit
-    @users = User.all
   end
 
   def create

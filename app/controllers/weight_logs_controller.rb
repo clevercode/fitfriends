@@ -11,12 +11,10 @@ class WeightLogsController < ApplicationController
   end
 
   def new
-    @users = User.all
     @weight_log = WeightLog.new
   end
 
   def edit
-    @users = User.all
   end
 
   def create
