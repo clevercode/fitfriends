@@ -5,7 +5,7 @@ class FoodLogsController < ApplicationController
   # GET /food_logs
   # GET /food_logs.json
   def index
-    @food_logs = @user.food_logs.all
+    @food_logs = @user.food_logs.group_by { |log| log.consumed_at.to_date.beginning_of_day.utc }
   end
 
   # GET /food_logs/1
