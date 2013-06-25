@@ -12,17 +12,20 @@
     %th
     %th
 
-  - @food_logs.each do |food_log|
+  - @food_logs.each do |day, food_logs|
     %tr
-      %td= food_log.food_name
-      %td= food_log.carbs
-      %td= food_log.fat
-      %td= food_log.protein
-      %td= food_log.consumed_at
-      %td= food_log.user_id
-      %td= link_to 'Show', user_food_log_path(@user, food_log)
-      %td= link_to 'Edit', edit_user_food_log_path(@user, food_log)
-      %td= link_to 'Destroy', user_food_log_path(@user, food_log), :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= day
+    - food_logs.each do |food_log|
+      %tr
+        %td= food_log.food_name
+        %td= food_log.carbs
+        %td= food_log.fat
+        %td= food_log.protein
+        %td= food_log.consumed_at
+        %td= food_log.user_id
+        %td= link_to 'Show', user_food_log_path(@user, food_log)
+        %td= link_to 'Edit', edit_user_food_log_path(@user, food_log)
+        %td= link_to 'Destroy', user_food_log_path(@user, food_log), :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
