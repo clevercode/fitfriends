@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   after_create :create_weight_log
-  before_save :convert_height_and_weight
 
   has_secure_password
 
@@ -20,10 +19,39 @@ class User < ActiveRecord::Base
     weight_log.save
   end
 
-  def convert_height_and_weight
-    self.start_weight = self.start_weight * 0.453592
-    self.goal_weight = self.goal_weight * 0.453592
-    self.height = self.height * 2.54
+  def start_weight_in_lbs
+    self.start_weight ||= 0
+    self.start_weight * 2.20462
+  end
+
+  def start_weight_in_lbs=(lbs)
+    lbs = BigDecimal.new(lbs || 0.0)
+    self.start_weight = lbs * 0.453592
+  end
+
+  def current_weight_in_lbs
+    self.current_weight ||= 0
+    self.current_weight * 2.20462
+  end
+
+  def goal_weight_in_lbs
+    self.goal_weight ||= 0
+    self.goal_weight * 2.20462
+  end
+
+  def goal_weight_in_lbs=(lbs)
+    lbs = BigDecimal.new(lbs || 0)
+    self.goal_weight = lbs * 0.453592
+  end
+
+  def height_in_inches
+    self.height ||= 0.0
+    self.height * 0.393701
+  end
+
+  def height_in_inches=(inches)
+    inches = BigDecimal.new(inches || 0)
+    self.height = inches * 2.54
   end
 
   def avatar_url
@@ -43,7 +71,7 @@ class User < ActiveRecord::Base
     start_weight = self.start_weight
     kilos_lost = start_weight - self.current_weight
     kilos_to_lose = start_weight - self.goal_weight
-    (kilos_lost / kilos_to_lose).round(2)
+    ((kilos_lost / kilos_to_lose) * 100).round
   end
 
   private

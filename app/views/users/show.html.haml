@@ -8,16 +8,16 @@
   = @user.email
 %p
   %b Start weight:
-  = @user.start_weight
+  = @user.start_weight_in_lbs.round
 %p
   %b Goal weight:
-  = @user.goal_weight
+  = @user.goal_weight_in_lbs.round
 %p
   %b Current weight:
-  = @user.current_weight
+  = @user.current_weight_in_lbs.round(1)
 %p
   %b Height:
-  = @user.height
+  = @user.height_in_inches.round
 
 
 = link_to 'Back', users_path
