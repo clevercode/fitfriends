@@ -40,6 +40,11 @@ gem 'jbuilder', '~> 1.2'
 # Passwords
 gem 'bcrypt-ruby', '~> 3.0.1'
 
+group :development, :test do
+  # Testing!
+  gem 'rspec-rails'
+end
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
