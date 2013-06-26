@@ -1,13 +1,17 @@
 class WeightLog < ActiveRecord::Base
-  before_save :convert_pounds_to_kilos
   after_save :set_user_current_weight
 
   # Associations
   belongs_to :user, inverse_of: :weight_logs
 
-  def convert_pounds_to_kilos
-    weight = self.weight
-    self.weight = weight * 0.453592
+  def weight_in_lbs
+    self.weight ||= BigDecimal.new("0.0")
+    self.weight * 2.20462
+  end
+
+  def weight_in_lbs=(lbs)
+    lbs = BigDecimal.new(lbs || 0.0)
+    self.weight = lbs * 0.453592
   end
 
   def set_user_current_weight
