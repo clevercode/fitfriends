@@ -4,6 +4,9 @@ class WeightLog < ActiveRecord::Base
   # Associations
   belongs_to :user, inverse_of: :weight_logs
 
+  validates :weight, :presence => true,
+                     :numericality => { :greater_than => 0 }
+
   def weight_in_lbs
     self.weight ||= BigDecimal.new("0.0")
     self.weight * 2.20462
