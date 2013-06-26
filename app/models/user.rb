@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   end
 
   def start_weight_in_lbs
-    self.start_weight ||= 0
+    self.start_weight ||= BigDecimal.new("0.0")
     self.start_weight * 2.20462
   end
 
@@ -30,12 +30,12 @@ class User < ActiveRecord::Base
   end
 
   def current_weight_in_lbs
-    self.current_weight ||= 0
+    self.current_weight ||= BigDecimal.new("0.0")
     self.current_weight * 2.20462
   end
 
   def goal_weight_in_lbs
-    self.goal_weight ||= 0
+    self.goal_weight ||= BigDecimal.new("0.0")
     self.goal_weight * 2.20462
   end
 
@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
   end
 
   def height_in_inches
-    self.height ||= 0.0
+    self.height ||= BigDecimal.new("0.0")
     self.height * 0.393701
   end
 
