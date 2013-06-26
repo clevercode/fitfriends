@@ -63,7 +63,7 @@ class WaterLogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def water_log_params
-      params.require(:water_log).permit(:volume, :consumed_at, :user_id)
+      params.require(:water_log).permit(:volume, :consumed_at, :user_id, :volume_in_ounces)
     end
 
     def convert_values
