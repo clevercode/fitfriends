@@ -68,9 +68,11 @@ class User < ActiveRecord::Base
   end
 
   def percentage_lost
-    start_weight = self.start_weight
-    kilos_lost = start_weight - self.current_weight
-    kilos_to_lose = start_weight - self.goal_weight
+    current_weight = self.current_weight || BigDecimal.new('0')
+    goal_weight = self.goal_weight || BigDecimal.new('0')
+    start_weight = self.start_weight || BigDecimal.new('0')
+    kilos_lost = start_weight - current_weight
+    kilos_to_lose = start_weight - goal_weight
     BigDecimal.new((kilos_lost / kilos_to_lose) * 100)
   end
 
